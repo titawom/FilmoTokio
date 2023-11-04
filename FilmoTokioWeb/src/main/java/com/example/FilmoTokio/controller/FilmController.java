@@ -107,7 +107,7 @@ public class FilmController {
         film.setPoster(filmDTO.getPoster().getOriginalFilename());
 
         StringBuilder fileNames = new StringBuilder();
-        Path fileNameAndPath = Paths.get("src/main/resources/static/images", file.getOriginalFilename());
+        Path fileNameAndPath = Paths.get("FilmoTokioWeb/src/main/resources/static/images", file.getOriginalFilename());
         fileNames.append(file.getOriginalFilename());
         Files.write(fileNameAndPath, file.getBytes());
 
