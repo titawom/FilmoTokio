@@ -40,7 +40,7 @@ public final class MessageReader implements ItemReader<String>, InitializingBean
             message = message + "Título: " + film.getTitle() + " - ";
             message = message + "Director: " + film.getDirector().getName() + " - ";
             message = message + "Año: " + film.getYear() + " - ";
-            message = message + "Duración: " + film.getDuration();
+            message = message + "Duración: " + film.getDuration() + "\n";
         }
 
         //read and pass message to processor to process the message
