@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+    <!--Estilo para container-->
+   <link rel="stylesheet" th:href="@{/css/film.css}">
+</head>
+
+<body class="text-center">
+
+  <div th:if="${admin}">
+    <nav th:replace="~{admin-header :: header}"></nav> <!-- agrega el navegador-->
+  </div>
+  <div th:if="${!admin}">
+    <nav th:replace="~{user-header :: header}"></nav> 
+  </div>
+
+<div>
+  <!-- Muestra la imagen -->
+  <img th:src="'/images/' + ${film.poster}" alt="Film Image" />
+</div>
+    <h1 th:text="${titulo}"></h1>
+  <p>Director: <span th:text="${film.director.name}"></span></p>
+  <div th:each="screenwriter : ${film.screenwriter}">
+    <p>Guionista: <span th:text="${screenwriter.name}"></span></p>
+  </div>
+
+  <div th:each="musician : ${film.musician}">
+    <p>Músicos: <span th:text="${musician.name}"></span></p>
+  </div>
+
+  <div th:each="photographer : ${film.photographer}">
+    <p>Fotografía: <span th:text="${photographer.name}"></span></p>
+  </div>
+
+  <div th:each="actor : ${film.actor}">
+    <p>Actores: <span th:text="${actor.name}"></span></p>
+  </div>
+
+  <p>Sinopsis: <span th:text="${film.sypnosis}"></span></p>
+ 
+<div th:if="${!isScoreDone}">
+  <form action="#" th:action="@{/scores/save}" method="post">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio1" value="1">
+      <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio4" value="4">
+      <label class="form-check-label" for="inlineRadio4">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio5" value="5">
+      <label class="form-check-label" for="inlineRadio5">5</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio6" value="6">
+      <label class="form-check-label" for="inlineRadio6">6</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio7" value="7">
+      <label class="form-check-label" for="inlineRadio7">7</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio8" value="8">
+      <label class="form-check-label" for="inlineRadio8">8</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio9" value="9">
+      <label class="form-check-label" for="inlineRadio9">9</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="scoreValue" id="inlineRadio10" value="0">
+      <label class="form-check-label" for="inlineRadio10">10</label>
+    </div>
+
+    <input type="hidden" id="filmId" name="filmId" th:value="${film.id}">
+    
+    <div class="boton">
+      <button type="submit" class="btn btn-primary">Puntuar</button>
+    </div>
+  </form>
+</div>
+  
+<form action="#" th:action="@{/reviews/save}" method="post">
+  <div class="mb-3">
+      <h5></h5>
+    <label for="exampleFormControlInput1" class="form-label">Añadir Critica</label>
+    <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="titulo">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Titulo</label>
+    <textarea class="form-control" name="review" id="exampleFormControlTextarea1" rows="3" placeholder="escribe aquí tu critica">Review</textarea>
+  </div>
+  <input type="hidden" id="filmId" name="filmId" th:value="${film.id}">
+  <div class="boton">
+  <button type="submit" class="btn btn-primary">Reutilizar Review</button>
+  </div>
+</form>
+
+<div th:each="review : ${reviews}">
+  <p>Titulo: <span th:text="${review.title}"></span></p>
+  <p>Review: <span th:text="${review.textReview}"></span></p>
+</div>
+
+<div th:replace="~{footer :: footer}"></div> <!-- agrega el footer-->
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

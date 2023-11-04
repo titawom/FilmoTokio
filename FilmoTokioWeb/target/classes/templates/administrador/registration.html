@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div th:if="${admin}">
+      <nav th:replace="~{admin-header :: header}"></nav> <!-- agrega el navegador-->
+    </div>
+    <div th:if="${!admin}">
+      <nav th:replace="~{user-header :: header}"></nav> 
+    </div>
+    <!-- agrega el navegador-->
+
+    <form class="row g-3" action="#" th:action="@{/administrador/user/save}" method="post">
+      <div class="col-md-4">
+        <label for="validationDefault01" class="form-label">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="validationDefault01"
+          value="Mark"
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Apellido</label>
+        <input
+          type="text"
+          name="surname"
+          class="form-control"
+          id="validationDefault02"
+          value="Otto"
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefaultUsername" class="form-label">Email</label>
+        <div class="input-group">
+          <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          <input
+            type="text"
+            name="email"
+            class="form-control"
+            id="validationDefaultUsername"
+            aria-describedby="inputGroupPrepend2"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationDefault03" class="form-label">Usuario</label>
+        <input
+          type="text"
+          name="username"
+          class="form-control"
+          id="validationDefault03"
+          required
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault04" class="form-label">Roles</label>
+        <select name="role" class="form-select" id="validationDefault04" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="ROLE_ADMIN">ADMIN</option>
+          <option value="ROLE_USER">USER</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault05" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          id="validationDefault05"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="invalidCheck2"
+            required
+          />
+          <label class="form-check-label" for="invalidCheck2">
+            Agree to terms and conditions
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Registrar cuenta</button>
+        <button class="btn btn-primary" type="submit">Volver</button>
+      </div>
+    </form>
+
+    <div th:replace="~{footer :: footer}"></div>
+    <!-- Bootstrap core JavaScript -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  </body>
+</html>

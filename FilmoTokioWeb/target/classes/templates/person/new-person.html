@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+</head>
+
+<body>
+
+  <div th:if="${admin}">
+    <nav th:replace="~{admin-header :: header}"></nav> <!-- agrega el navegador-->
+  </div>
+  <div th:if="${!admin}">
+    <nav th:replace="~{user-header :: header}"></nav> 
+  </div>
+
+    <h2>Nuevo Artista</h2>
+ <div class="col-md-6">
+        <label for="validationDefault02" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="validationDefault02" value="Nombre" required>
+    </div>
+     <div class="col-md-6">
+        <label for="validationDefault02" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="validationDefault02" value="Apellidos" required>
+    </div>
+    
+   
+<div class="input-group mb-3">
+  <select class="form-select" id="inputGroupSelect02">
+    <option selected>Trabajos</option>
+    <option value="1">Guionista</option>
+    <option value="2">Musico</option>
+    <option value="3">Fotografo</option>
+    <option value="3">Actor</option>
+    <option value="3">Director</option>
+  </select>
+  <label class="input-group-text" for="inputGroupSelect02">Tipos de trabajo</label>
+</div>
+
+<button type="button" class="btn btn-primary">Registrar Persona</button>
+<button type="button" class="btn btn-primary">Volver</button>
+
+
+
+<div th:replace="~{footer :: footer}"></div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

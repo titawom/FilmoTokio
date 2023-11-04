@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Nueva Pelicula</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<div th:if="${admin}">
+    <nav th:replace="~{admin-header :: header}"></nav> <!-- agrega el navegador-->
+</div>
+<div th:if="${!admin}">
+    <nav th:replace="~{user-header :: header}"></nav> 
+</div>
+
+<div class="container">
+    <h1>Nuevo Film</h1>
+    <form action="#" th:action="@{/films/save}" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" name="title" class="form-control" id="titulo" placeholder="Título">
+        </div>
+        <div class="mb-3">
+            <label for="anio" class="form-label">Año</label>
+            <input type="text"  name="year" class="form-control" id="anio" placeholder="Año">
+        </div>
+        <div class="mb-3">
+            <label for="duracion" class="form-label">Duración</label>
+            <input type="text"  name="duration" class="form-control" id="duracion" placeholder="Duración">
+        </div>
+        <div class="mb-3">
+            <label for="directores" class="form-label">Directores</label>
+            <input type="text"  name="director" class="form-control" id="directores" placeholder="Directores">
+        </div>
+        <div class="mb-3">
+            <label for="guionistas" class="form-label">Guionistas</label>
+            <input type="text"  name="guionista" class="form-control" id="guionistas" placeholder="Guionistas">
+        </div>
+        <div class="mb-3">
+            <label for="actores" class="form-label">Actores</label>
+            <input type="text"  name="actor" class="form-control" id="actores" placeholder="Actores">
+        </div>
+        <div class="mb-3">
+            <label for="musicos" class="form-label">Músicos</label>
+            <input type="text"  name="musico" class="form-control" id="musicos" placeholder="Músicos">
+        </div>
+        <div class="mb-3">
+            <label for="fotografo" class="form-label">Fotógrafo</label>
+            <input type="text"  name="fotografo" class="form-control" id="fotografo" placeholder="Fotógrafo">
+        </div>
+        <div class="mb-3">
+            <label for="sinopsis" class="form-label">Sinopsis</label>
+            <textarea class="form-control"  name="synopsis" id="sinopsis" placeholder="Sinopsis"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="cartel" class="form-label">Cartel</label>
+            <input type="file" name="poster" accept="image/*" class="form-control-file">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Registrar Película</button>
+            <button class="btn btn-primary" type="button">Volver</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<div th:replace="~{footer :: footer}"></div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
