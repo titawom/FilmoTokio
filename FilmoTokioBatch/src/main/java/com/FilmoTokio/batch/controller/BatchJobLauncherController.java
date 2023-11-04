@@ -28,7 +28,7 @@ public class BatchJobLauncherController {
      * @return String
      * @throws Exception
      */
-    @RequestMapping("/launch/welcome/job")
+    @RequestMapping("/launch/job")
     @Scheduled(fixedRate = 86400000)
     public String jobLauncher() throws Exception {
         MessageReader.returned = false;

@@ -9,19 +9,12 @@ import com.example.FilmoTokio.repository.ReviewRepository;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
-
-    @Autowired
-    private FilmService filmService;
-
-    @Autowired
-    private UserService userService;
 
     public ReviewServiceImpl(ReviewRepository reviewRepository) {
         this.reviewRepository = reviewRepository;

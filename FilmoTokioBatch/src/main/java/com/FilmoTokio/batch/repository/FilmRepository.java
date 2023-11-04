@@ -12,4 +12,5 @@ import com.FilmoTokio.batch.entity.Film;
 public interface FilmRepository extends JpaRepository<Film, Long> {
     @Query("SELECT f FROM Film f WHERE f.migrate = false")
     List<Film> findAll();
+    
 }

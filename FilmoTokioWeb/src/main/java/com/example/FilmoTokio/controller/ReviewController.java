@@ -1,9 +1,8 @@
 package com.example.FilmoTokio.controller;
 
 import com.example.FilmoTokio.DTO.ReviewRequest;
-import com.example.FilmoTokio.DTO.ScoreRequest;
+
 import com.example.FilmoTokio.entity.Film;
-import com.example.FilmoTokio.entity.Review;
 import com.example.FilmoTokio.entity.User;
 import com.example.FilmoTokio.service.FilmService;
 import com.example.FilmoTokio.service.ReviewService;

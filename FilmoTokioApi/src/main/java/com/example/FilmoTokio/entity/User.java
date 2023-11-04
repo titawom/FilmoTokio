@@ -34,7 +34,7 @@ public class User {
 
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(name = "user_roles")
-  private Set<Role> roles = new HashSet<>();
+  private Set<Role> role = new HashSet<>();
 
   public User() {
   }
@@ -82,10 +82,10 @@ public class User {
   }
 
   public Set<Role> getRoles() {
-    return roles;
+    return role;
   }
 
   public void setRoles(Set<Role> roles) {
-    this.roles = roles;
+    this.role = roles;
   }
 }

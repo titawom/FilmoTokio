@@ -1,6 +1,5 @@
 package com.example.FilmoTokio.controller;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,14 +19,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.slf4j.Logger;
-
 import jakarta.servlet.http.HttpSession;
 
 import com.example.FilmoTokio.DTO.UserDTO;
 import com.example.FilmoTokio.entity.Role;
 
 @Controller
+@SuppressWarnings("unchecked")
 @RequestMapping("/administrador")
 public class AdminController {
 
@@ -39,8 +37,6 @@ public class AdminController {
 
     @Autowired
     private RoleRepository roleRepository;
-
-    private final Logger logger = LoggerFactory.getLogger(AdminController.class);
     
     BCryptPasswordEncoder passEncode= new BCryptPasswordEncoder(); //Método para el password
 
@@ -77,6 +73,7 @@ public class AdminController {
         return "redirect:/administrador/index";
     }
 
+    
     @GetMapping("/save-session") 
     public String saveSession() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

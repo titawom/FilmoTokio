@@ -7,10 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.Chunk;
 import org.springframework.batch.item.ItemWriter;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import jakarta.servlet.http.HttpServletResponse;
-
 
 /**
  * ItemWriter
@@ -18,9 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 public class MessageWriter implements ItemWriter<String> {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @Autowired
-    HttpServletResponse response;
 
     @Override
     public void write(Chunk<? extends String> inputMessage) throws Exception {
@@ -33,10 +26,9 @@ public class MessageWriter implements ItemWriter<String> {
 
     public void exportToCsv(String inputMessage) throws IOException {
     FileWriter csvOutputFile = new FileWriter("FilmReview.csv", true);
-    try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
-        pw.println(inputMessage);
+        try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
+            pw.println(inputMessage);
+        }
+
     }
-
-}
-
 }
