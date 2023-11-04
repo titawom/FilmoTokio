@@ -1,6 +1,27 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org%22%3E/">
-<body>
-Error
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+  
+
+<nav th:replace="~{user-header :: header}"></nav> <!-- agrega el navegador-->
+  
+<p>Se ha producido un error</p>
+
+<div th:replace="~{footer :: footer}"></div> <!-- agrega el footer-->
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
